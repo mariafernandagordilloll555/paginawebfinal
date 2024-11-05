@@ -129,6 +129,10 @@
             color: black;
             text-align: center;
             }
+            h3 {
+            color: black;
+            text-align: right;
+            }
         .productos {
             display: flex;
             flex-wrap: wrap;
@@ -216,7 +220,30 @@
 
 <header>
     <img src="logo.png">
-    <h1>Bienvenidos a Delicias Heladas Artiko</h1>
+    <h1>Bienvenidos a Delicias Heladas Artiko</h1> <h3>Visitas: <span id="contador">0</span></h3> 
+    <section class="visitas">
+         
+            <script>
+        // Obtener el contador de visitas desde el localStorage
+        let visitas = localStorage.getItem('contadorVisitas');
+        
+        // Si no existe, inicializarlo con 0
+        if (visitas === null) {
+            visitas = 0;
+        }
+        
+        // Incrementar el contador de visitas
+        visitas++;
+        
+        // Guardar el nuevo valor del contador en el localStorage
+        localStorage.setItem('contadorVisitas', visitas);
+        
+        // Mostrar el contador de visitas en la página
+        document.getElementById('contador').textContent = visitas;
+    </script>
+    
+
+
        <section class="opciones">
      <nav>
             <ul id="nav-list">
@@ -337,9 +364,7 @@
 <section id="compras">
             <h1>COMPRAS ONLINE</h1>
             <p>Agrega tu mediolitro de helado</p>
-
             <img src="presentacion.jpg">
-
             <div class="product">
              <div>
                 <h2>Helado de Fresa</h2>
@@ -394,10 +419,13 @@
                 if (cartItems.length === 0) {
                     cart.innerHTML = '<p>No hay productos en el carrito.</p>';
                     return;
+                    
                 }
-
+               
                 let total = 0;
+                let contador=0
                 cartItems.forEach((item, index) => {
+                    contador=contador+1
                     total += item.price;
                     cart.innerHTML += `
                         <div class="cart-item">
@@ -407,7 +435,13 @@
                     `;
                 });
                 cart.innerHTML += `<strong>Total: $${total}</strong>`;
+                cart.innerHTML += `<p>Cantidad Productos: ${contador}</p>`;
+               
+
+
             }
+
+
         </script>
         </section>
 
@@ -435,3 +469,4 @@
 
 </body>
 </html>
+
