@@ -412,6 +412,7 @@
                 updateCart();
             }
 
+           
             function updateCart() {
                 const cart = document.getElementById('cart');
                 cart.innerHTML = '';
@@ -431,30 +432,28 @@
                         <div class="cart-item">
                             <span>${item.product}: $${item.price}</span>
                             <button onclick="removeFromCart(${index})">Eliminar</button>
-                        </div>
+                        </div> 
                     `;
                 });
                 cart.innerHTML += `<strong>Total: $${total}</strong>`;
                 cart.innerHTML += `<p>Cantidad Productos: ${contador}</p>`;
-               
+              
 
 
             }
-
-
         </script>
-        </section>
-
 
      <section id="contact">
 
     <section class="contacto">
         <h2>Contacto</h2>
-        <p>Si tienes alguna pregunta o deseas hacer un pedido especial, escríbenos:</p>
+        <p>Si tienes alguna pregunta o deseas hacer un pedido escríbenos:</p>
+        <p>*el pago es contra entrega, recibimos efectivo o tarjeta</p>
         <form action="#" method="POST">
             <input type="text" name="nombre" placeholder="Nombre" required>
             <input type="email" name="email" placeholder="Correo Electrónico" required>
-            <textarea name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+            <input type="text" name="adress" placeholder="Dirección" required>
+            <textarea name="mensaje" placeholder="Copia y pega los productos del carrito de compras aqui para despacho." rows="4" required></textarea>
             <button type="submit">Enviar</button>
         </form>
     </section>
@@ -469,4 +468,3 @@
 
 </body>
 </html>
-
